@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-4">
+    <div *ngIf="nbClick" class="alert alert-success">
+      Nombre de personne sélectionnées : {{ nbClick }}
+    </div>
+    <app-list></app-list>
+  </div>
+  <div class="col-8">
+    <app-detail></app-detail>
+  </div>
+</div>
+<div class="row">
+  <app-embauche></app-embauche>
+</div>
