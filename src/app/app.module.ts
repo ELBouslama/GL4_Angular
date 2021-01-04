@@ -1,78 +1,69 @@
+import { InterceptorProvider } from './interceptors/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
-import { SecondComponent } from './components/second/second.component';
+
 import { ColorComponent } from './components/color/color.component';
-import { TwoComponent } from './components/two/two.component';
-import { CardComponent } from './components/card/card.component';
-import { PereComponent } from './components/pere/pere.component';
+
 import { FilsComponent } from './components/fils/fils.component';
-import { CvComponent } from './cv/pages/cv/cv.component';
-import { DetailComponent } from './cv/components/detail/detail.component';
-import { ItemComponent } from './cv/components/item/item.component';
-import { ListComponent } from './cv/components/list/list.component';
-import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
+import { PereComponent } from './components/pere/pere.component';
+import { CvComponent } from './cv/cv/cv.component';
+import { ItemComponent } from './cv/item/item.component';
+import { ListComponent } from './cv/list/list.component';
+import { CardComponent } from './cv/card/card.component';
+
 import { WordComponent } from './directives/word/word.component';
-import { NgclassComponent } from './directives/ngclass/ngclass.component';
-import { HighlightDirective } from './directives/highlight.directive';
-import { RainbowDirective } from './directives/rainbow.directive';
-import { StructurelleComponent } from './components/structurelle/structurelle.component';
-import { RandomStringPipe } from './pipes/random-string.pipe';
-import { LoggerService } from './services/logger.service';
-import { DefaultImagePipe } from './pipes/default-image.pipe';
+import { EuroDollarPipe } from './pipes/euro-dollar.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/pages/todo/todo.component';
+;
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
-import { EmbaucheComponent } from './embauche/components/embauche/embauche.component';
-import { LoginComponent } from './pages/login/login.component';
-import { AdminComponent } from './admin/admin.component';
-import { FrontComponent } from './front/front.component';
-import { NF404Component } from './nf404/nf404.component';
-import { TestNestComponent } from './test-nest/test-nest.component';
-import { TestFormComponent } from './test-form/test-form.component';
-import { ObservableTestComponent } from './observable-test/observable-test.component';
+import { DetailsPersonneComponent } from './cv/details-personne/details-personne.component';
+import { NF404Component } from './components/nf404/nf404.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
+import { LoginComponent } from './login/login.component';
 import { TestHttpComponent } from './components/test-http/test-http.component';
+import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent,
     ColorComponent,
-    TwoComponent,
-    CardComponent,
-    PereComponent,
     FilsComponent,
+    PereComponent,
     CvComponent,
-    DetailComponent,
     ItemComponent,
     ListComponent,
-    NgstyleComponent,
+    CardComponent,
     WordComponent,
-    NgclassComponent,
-    HighlightDirective,
-    RainbowDirective,
-    StructurelleComponent,
-    RandomStringPipe,
+    EuroDollarPipe,
     DefaultImagePipe,
     TodoComponent,
-    HeaderComponent,
     EmbaucheComponent,
-    LoginComponent,
-    AdminComponent,
-    FrontComponent,
+    HeaderComponent,
+    DetailsPersonneComponent,
     NF404Component,
-    TestNestComponent,
     TestFormComponent,
-    ObservableTestComponent,
+    LoginComponent,
     TestHttpComponent,
+    AddPersonneComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    HttpClientModule,
+  ],
+  providers: [InterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

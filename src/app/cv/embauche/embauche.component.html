@@ -1,0 +1,12 @@
+<div *ngIf="embauchees.length">
+  <h1>Liste des personnes à embaucher</h1>
+
+  <div class="embauche">
+    <app-item
+      *ngFor="let embauched of embauchees"
+      [size]="150"
+      [isDiv]="false"
+      [personne]="embauched"
+    ></app-item>
+  </div>
+</div>

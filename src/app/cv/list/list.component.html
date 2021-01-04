@@ -1,0 +1,18 @@
+<ol class="list-group">
+  <li
+    [ngClass]="{
+      'list-group-item-primary': isOdd,
+      'list-group-item-secondary': !isOdd
+    }"
+    *ngFor="let personneItem of personnes; let isOdd = odd"
+    class="list-group-item"
+  >
+    <!-- appItem(personne: Personne) {}; -->
+    <!-- appItem(personnes[0]); -->
+    <!-- appItem(personnes[1]); -->
+    <app-item
+      (selectPersonne)="forwardPersonne($event)"
+      [personne]="personneItem"
+    ></app-item>
+  </li>
+</ol>

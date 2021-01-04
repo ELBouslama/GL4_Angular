@@ -1,40 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin/admin.component';
 import { ColorComponent } from './components/color/color.component';
-import { CvComponent } from './cv/pages/cv/cv.component';
-import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
-import { FrontComponent } from './front/front.component';
-import { NF404Component } from './nf404/nf404.component';
-import { LoginComponent } from './pages/login/login.component';
+import { NF404Component } from './components/nf404/nf404.component';
+import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
+import { CvComponent } from './cv/cv/cv.component';
+import { DetailsPersonneComponent } from './cv/details-personne/details-personne.component';
+import { WordComponent } from './directives/word/word.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/pages/todo/todo.component';
-
+// cv/add
 const routes: Routes = [
-
-  {
-    path: 'cv',
-    children: [
-      { path: '', component: CvComponent },
-      { path: 'add', component: CvComponent },
-      { path: ':id', component: CvComponent },
-    ],
-  },
-  {
-    path: '',
-    component: FrontComponent,
-    children: [
-      { path: 'todo', component: TodoComponent },
-      { path: 'color/:defaultColor', component: ColorComponent },
-    ],
-  },
-  {
-    path: 'admin', component: AdminComponent, children: [
-      {path: 'ngStyle', component: NgstyleComponent}
-    ]
-  },
+  { path: '', component: WordComponent },
+  { path: 'cv', component: CvComponent },
+  { path: 'cv/add', component: AddPersonneComponent, canActivate: [AuthGuard] },
+  { path: 'cv/:id', component: DetailsPersonneComponent },
+  { path: 'todo', component: TodoComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: 'cv', pathMatch: 'full'},
-  {path: '**', component: NF404Component },
+  { path: 'color/:couleur', component: ColorComponent },
+  { path: '**', component: NF404Component },
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@ export class ObservableTestComponent implements OnInit {
   observable: Observable<number>;
   imageObservable: Observable<string>;
   ngOnInit(): void {
-    this.observable = new Observable((observer) => {
+    this.observable = new Observable<number>((observer) => {
       let i = 5;
       setInterval(() => {
         if (!i) {
@@ -39,14 +39,19 @@ export class ObservableTestComponent implements OnInit {
         filter((x) => x % 2 === 0)
       )
       .subscribe((data) => console.log('piped data', data));
-    this.imageObservable = new Observable<string>((observer) => {
+
+    this.imageObservable = new Observable<string>(
+      (observer) => {
       let indice = this.paths.length - 1;
-      setInterval(() => {
+      setInterval(
+        () => {
         if (indice < 0) {
           indice = this.paths.length - 1;
         }
         observer.next(this.paths[indice--]);
-      }, 1000);
+      }
+      , 1000);
     });
+  
   }
 }
